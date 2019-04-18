@@ -1,8 +1,8 @@
-<div *ngFor = "let adds of arrlist ">
+<!--<div *ngFor = "let adds of arrlist ">
   {{adds|json}}
-</div>
+</div> -->
 <div class="container">
-<form>
+<form #formsdata>  
   <div class="form-group">
   <input name="id" #id="ngModel" [(ngModel)]="ids" placeholder="id"/>
   </div>
@@ -10,22 +10,29 @@
   <input name="id" #email="ngModel" [(ngModel)]="emails" placeholder="email"/>
   </div>
    <div class="form-group">
-  <input name="id" #password="ngModel" [(ngModel)]="passwords" placeholder="password"/>
+  <input name="password" #password="ngModel" [(ngModel)]="passwords" placeholder="password"/>
   </div>
-  <button class="btn btn-primary" (click)="addingitems()">ADD</button>
+  <button class="btn btn-primary" (click)="addingitems(id.value,email.value,password.value)">ADD</button>
 </form>
 </div>
-<table class="table-responsive">
+<table class="table table-responsive">
   <tr>
     <th>Id</th>
     <th>Email</th>
     <th>Password</th>
     <th>Actions</th>
   </tr>
-  <tr *ngFor="let adds of arrlist">
+  <tr *ngFor="let adds of updatelist;let i=index">
     <td>{{adds.id}}</td>
     <td>{{adds.email}}</td>
     <td>{{adds.password}}</td>
-    <td><button class="btn btn-primary" (click)="edit()">Edit</button></td>
+    <td><button class="btn btn-primary" (click)="edit(add)">Edit</button>&nbsp; <button class="btn btn-primary" (click)="remove(this.adds)">Delete</button></td>
   </tr>
 </table>
+  <div *ngFor="let cp of update">
+  {{cp|json}}
+</div>
+
+ <div *ngFor="let cpps of updatelist">
+  {{cpps|json}}
+</div>
