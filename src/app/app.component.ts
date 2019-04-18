@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MainServices } from './main.services';
 
 @Component({
   selector: 'my-app',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent  {
   name = 'Angular';
+  arrlist = [];
+
+  constructor(public mservice:MainServices){
+    this.arrlist = this.mservice.getarraylist();
+  }
 }
