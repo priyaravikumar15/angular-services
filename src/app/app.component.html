@@ -1,3 +1,15 @@
 <div *ngFor = "let adds of arrlist ">
   {{adds|json}}
 </div>
+<table class="table-responsive">
+  <tr>
+    <th>Id</th>
+    <th>Email</th>
+    <th>Password</th>
+  </tr>
+  <tr *ngFor="let adds of arrlist">
+    <th>{{adds.id}}</th>
+    <th>{{adds.email}}</th>
+    <th>{{adds.password}}</th>
+  </tr>
+</table>
