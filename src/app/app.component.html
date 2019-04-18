@@ -1,15 +1,31 @@
 <div *ngFor = "let adds of arrlist ">
   {{adds|json}}
 </div>
+<div class="container">
+<form>
+  <div class="form-group">
+  <input name="id" #id="ngModel" [(ngModel)]="ids" placeholder="id"/>
+  </div>
+   <div class="form-group">
+  <input name="id" #email="ngModel" [(ngModel)]="emails" placeholder="email"/>
+  </div>
+   <div class="form-group">
+  <input name="id" #password="ngModel" [(ngModel)]="passwords" placeholder="password"/>
+  </div>
+  <button class="btn btn-primary" (click)="addingitems()"></button>
+</form>
+</div>
 <table class="table-responsive">
   <tr>
     <th>Id</th>
     <th>Email</th>
     <th>Password</th>
+    <th>Actions</th>
   </tr>
   <tr *ngFor="let adds of arrlist">
-    <th>{{adds.id}}</th>
-    <th>{{adds.email}}</th>
-    <th>{{adds.password}}</th>
+    <td>{{adds.id}}</td>
+    <td>{{adds.email}}</td>
+    <td>{{adds.password}}</td>
+    <td><button class="btn btn-primary" (click)="edit()">Edit</button></td>
   </tr>
 </table>

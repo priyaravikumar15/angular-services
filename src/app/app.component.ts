@@ -9,8 +9,11 @@ import { MainServices } from './main.services';
 export class AppComponent  {
   name = 'Angular';
   arrlist = [];
-
+  updatelist = [];
   constructor(public mservice:MainServices){
     this.arrlist = this.mservice.getarraylist();
+  }
+  edit(){
+    
   }
 }
